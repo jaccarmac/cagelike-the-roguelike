@@ -56,13 +56,13 @@ semi-literate Org form.
 
   All files get tangled to the directory that this file is in.
 
-** ==game.js==
+** =game.js=
 
    #+BEGIN_SRC web :noweb no-export :tangle game.js :padline no
      <<game>>
    #+END_SRC
 
-** ==index.html==
+** =index.html=
 
    #+BEGIN_SRC web :noweb no-export :tangle index.html :padline no
      <<skeleton>>
