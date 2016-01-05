@@ -23,3 +23,47 @@
 
   For more information, please refer to <http://unlicense.org/>
 #+END_SRC
+
+For now, I'm just following the directions for [[http://www.roguebasin.com/index.php?title=Rot.js_tutorial,_part_1][this]] rot.js tutorial step in
+semi-literate Org form.
+
+#+NAME: skeleton
+#+BEGIN_SRC web
+  <!doctype html>
+  <html>
+      <head>
+          <title>Rudimentary rot.js "game".</title>
+      </head>
+      <body onload="Game.init()">
+          <h1>Rudimentary game.</h1>
+          <script type="text/javascript" src="rot.js/rot.min.js"></script>
+          <script type="text/javascript" src="game.js"></script>
+      </body>
+  </html>
+#+END_SRC
+
+#+NAME: game
+#+BEGIN_SRC web
+  var Game = {
+      init: function() {
+          this.display = new ROT.Display();
+          document.body.appendChild(this.display.getContainer());
+      }
+  };
+#+END_SRC
+
+* Tangle source code.
+
+  All files get tangled to the directory that this file is in.
+
+** ==game.js==
+
+   #+BEGIN_SRC web :noweb no-export :tangle game.js :padline no
+     <<game>>
+   #+END_SRC
+
+** ==index.html==
+
+   #+BEGIN_SRC web :noweb no-export :tangle index.html :padline no
+     <<skeleton>>
+   #+END_SRC
