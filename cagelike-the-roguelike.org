@@ -74,23 +74,26 @@ semi-literate Org form.
   #+END_SRC
 
 * Tangle source code.
+   :PROPERTIES:
+   :header-args: :noweb no-export :padline no
+   :END:
 
   All files get tangled to the directory that this file is in.
 
 ** =boot.properties=
 
-   #+BEGIN_SRC conf :noweb no-export :tangle boot.properties :padline no
+   #+BEGIN_SRC conf :tangle boot.properties
      <<pinned-clojure-version>>
    #+END_SRC
 
 ** =game.js=
 
-   #+BEGIN_SRC web :noweb no-export :tangle game.js :padline no
+   #+BEGIN_SRC web :tangle game.js
      <<game>>
    #+END_SRC
 
 ** =index.html=
 
-   #+BEGIN_SRC web :noweb no-export :tangle index.html :padline no
+   #+BEGIN_SRC web :tangle index.html
      <<skeleton>>
    #+END_SRC
