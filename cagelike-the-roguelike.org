@@ -52,9 +52,36 @@ semi-literate Org form.
   };
 #+END_SRC
 
+* Set up Boot/Clojurescript project.
+
+  Cagelike is written in Clojurescript, and I prefer Boot to Leiningen as a
+  Clojure(script) build tool. There are plenty of templates for simple
+  Boot/Clojurescript projects out there, including [[https://github.com/martinklepsch/tenzing][Tenzing]], which much of my
+  own configuration is taken from. I have chosen to write my own and not use an
+  existing template for two reasons. First, nothing I have found is set up
+  quite the way I like, in a literate Org file and neighboring tangled
+  files. Secondly, I'm still in the process of learning this ecosystem and
+  nothing hinders my technical learning more than copying and pasting.
+
+  According to the documentation of [[https://github.com/adzerk-oss/boot-cljs-repl][=boot-cljs-repl=]], which we will add and
+  configure a little later, we need to pin a specific Clojure version to the
+  Boot project.
+
+  #+NAME: pinned-clojure-version
+  #+BEGIN_SRC conf
+    BOOT_CLOJURE_NAME=org.clojure/clojure
+    BOOT_CLOJURE_VERSION=1.8.0-RC4
+  #+END_SRC
+
 * Tangle source code.
 
   All files get tangled to the directory that this file is in.
+
+** =boot.properties=
+
+   #+BEGIN_SRC conf :noweb no-export :tangle boot.properties :padline no
+     <<pinned-clojure-version>>
+   #+END_SRC
 
 ** =game.js=
 
