@@ -27,8 +27,7 @@
 For now, I'm just following the directions for [[http://www.roguebasin.com/index.php?title=Rot.js_tutorial,_part_1][this]] rot.js tutorial step in
 semi-literate Org form.
 
-#+NAME: skeleton
-#+BEGIN_SRC web
+#+BEGIN_SRC web :noweb-ref skeleton
   <!doctype html>
   <html>
       <head>
@@ -42,8 +41,7 @@ semi-literate Org form.
   </html>
 #+END_SRC
 
-#+NAME: game
-#+BEGIN_SRC web
+#+BEGIN_SRC web :noweb-ref game
   var Game = {
       init: function() {
           this.display = new ROT.Display();
