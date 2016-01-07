@@ -63,14 +63,29 @@ semi-literate Org form.
   files. Secondly, I'm still in the process of learning this ecosystem and
   nothing hinders my technical learning more than copying and pasting.
 
-  According to the documentation of [[https://github.com/adzerk-oss/boot-cljs-repl][=boot-cljs-repl=]], which we will add and
-  configure a little later, we need to pin a specific Clojure version to the
-  Boot project.
+  Let's start by defining the coordinates of the version of Clojure used for
+  this project.
 
-  #+NAME: pinned-clojure-version
-  #+BEGIN_SRC conf
-    BOOT_CLOJURE_NAME=org.clojure/clojure
-    BOOT_CLOJURE_VERSION=1.8.0-RC4
+  #+BEGIN_SRC text :noweb-ref clojure-name
+    org.clojure/clojure
+  #+END_SRC
+
+  #+BEGIN_SRC text :noweb-ref clojure-version
+    1.8.0-RC4
+  #+END_SRC
+
+  These will be used in the =boot.properties= file so tools like
+  [[https://github.com/adzerk-oss/boot-cljs-repl][=boot-cljs-repl=]] work properly.
+
+  #+BEGIN_SRC conf :noweb-ref boot-clojure
+    BOOT_CLOJURE_NAME=<<clojure-name>>
+    BOOT_CLOJURE_VERSION=<<clojure-version>>
+  #+END_SRC
+
+  This version of Clojure will also get put in =build.boot=.
+
+  #+BEGIN_SRC clojure :noweb-ref dependencies
+    [<<clojure-name>> "<<clojure-version>>"]
   #+END_SRC
 
 * Tangle source code.
@@ -83,7 +98,13 @@ semi-literate Org form.
 ** =boot.properties=
 
    #+BEGIN_SRC conf :tangle boot.properties
-     <<pinned-clojure-version>>
+     <<boot-clojure>>
+   #+END_SRC
+
+** =build.boot=
+
+   #+BEGIN_SRC clojure :tangle build.boot
+     (set-env! :dependencies [<<dependencies>>])
    #+END_SRC
 
 ** =game.js=
