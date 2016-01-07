@@ -75,7 +75,7 @@ semi-literate Org form.
 
 * Tangle source code.
    :PROPERTIES:
-   :header-args: :noweb no-export :padline no
+   :header-args: :noweb yes :padline no
    :END:
 
   All files get tangled to the directory that this file is in.
