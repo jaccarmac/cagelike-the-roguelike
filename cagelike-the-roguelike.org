@@ -1,6 +1,7 @@
 #+TITLE: Cagelike the roguelike.
+#+PROPERTY: header-args :noweb yes :padline no
 
-#+BEGIN_SRC text :tangle UNLICENSE :padline no
+#+BEGIN_SRC text :tangle UNLICENSE
   This is free and unencumbered software released into the public domain.
 
   Anyone is free to copy, modify, publish, use, compile, sell, or distribute this
@@ -87,9 +88,6 @@ semi-literate Org form.
   #+END_SRC
 
 * Tangle source code.
-   :PROPERTIES:
-   :header-args: :noweb yes :padline no
-   :END:
 
   All files get tangled to the directory that this file is in.
 
