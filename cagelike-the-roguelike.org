@@ -42,7 +42,7 @@
 ** Version.
 
    #+BEGIN_SRC text :noweb-ref version
-     0.5.0
+     0.5.1
    #+END_SRC
 
 ** Author.
@@ -58,8 +58,6 @@
    #+END_SRC
 
 * Tangle source code.
-
-  All files get tangled to the directory that this file is in.
 
 ** =cagelike-the-roguelike.asd=
 
