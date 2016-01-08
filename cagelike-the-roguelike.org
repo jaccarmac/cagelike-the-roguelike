@@ -25,92 +25,48 @@
   For more information, please refer to <http://unlicense.org/>
 #+END_SRC
 
-For now, I'm just following the directions for [[http://www.roguebasin.com/index.php?title=Rot.js_tutorial,_part_1][this]] rot.js tutorial step in
-semi-literate Org form.
+* System properties.
 
-#+BEGIN_SRC html :noweb-ref skeleton
-  <!doctype html>
-  <html>
-      <head>
-          <title>Rudimentary rot.js "game".</title>
-      </head>
-      <body onload="Game.init()">
-          <h1>Rudimentary game.</h1>
-          <script type="text/javascript" src="rot.js/rot.min.js"></script>
-          <script type="text/javascript" src="game.js"></script>
-      </body>
-  </html>
-#+END_SRC
+** System name.
 
-#+BEGIN_SRC js :noweb-ref game
-  var Game = {
-      init: function() {
-          this.display = new ROT.Display();
-          document.body.appendChild(this.display.getContainer());
-      }
-  };
-#+END_SRC
+   #+BEGIN_SRC text :noweb-ref name
+     cagelike-the-roguelike
+   #+END_SRC
 
-* Set up Boot/Clojurescript project.
+** Description.
 
-  Cagelike is written in Clojurescript, and I prefer Boot to Leiningen as a
-  Clojure(script) build tool. There are plenty of templates for simple
-  Boot/Clojurescript projects out there, including [[https://github.com/martinklepsch/tenzing][Tenzing]], which much of my
-  own configuration is taken from. I have chosen to write my own and not use an
-  existing template for two reasons. First, nothing I have found is set up
-  quite the way I like, in a literate Org file and neighboring tangled
-  files. Secondly, I'm still in the process of learning this ecosystem and
-  nothing hinders my technical learning more than copying and pasting.
+   #+BEGIN_SRC text :noweb-ref description
+     Lead Nicolas cage on a roguelike adventure!
+   #+END_SRC
 
-  Let's start by defining the coordinates of the version of Clojure used for
-  this project.
+** Version.
 
-  #+BEGIN_SRC text :noweb-ref clojure-name
-    org.clojure/clojure
-  #+END_SRC
+   #+BEGIN_SRC text :noweb-ref version
+     0.5.0
+   #+END_SRC
 
-  #+BEGIN_SRC text :noweb-ref clojure-version
-    1.8.0-RC4
-  #+END_SRC
+** Author.
 
-  These will be used in the =boot.properties= file so tools like
-  [[https://github.com/adzerk-oss/boot-cljs-repl][=boot-cljs-repl=]] work properly.
+   #+BEGIN_SRC text :noweb-ref author
+     Jacob Macdonald <jaccarmac@gmail.com>
+   #+END_SRC
 
-  #+BEGIN_SRC conf :noweb-ref boot-clojure
-    BOOT_CLOJURE_NAME=<<clojure-name>>
-    BOOT_CLOJURE_VERSION=<<clojure-version>>
-  #+END_SRC
+** License.
 
-  This version of Clojure will also get put in =build.boot=.
-
-  #+BEGIN_SRC clojure :noweb-ref dependencies
-    [<<clojure-name>> "<<clojure-version>>"]
-  #+END_SRC
+   #+BEGIN_SRC text :noweb-ref license
+     Unlicense
+   #+END_SRC
 
 * Tangle source code.
 
   All files get tangled to the directory that this file is in.
 
-** =boot.properties=
+** =cagelike-the-roguelike.asd=
 
-   #+BEGIN_SRC conf :tangle boot.properties
-     <<boot-clojure>>
-   #+END_SRC
-
-** =build.boot=
-
-   #+BEGIN_SRC clojure :tangle build.boot
-     (set-env! :dependencies [<<dependencies>>])
-   #+END_SRC
-
-** =game.js=
-
-   #+BEGIN_SRC web :tangle game.js
-     <<game>>
-   #+END_SRC
-
-** =index.html=
-
-   #+BEGIN_SRC web :tangle index.html
-     <<skeleton>>
+   #+BEGIN_SRC lisp :tangle cagelike-the-roguelike.asd
+     (defsystem "<<name>>"
+       :description "<<description>>"
+       :version "<<version>>"
+       :author "<<author>>"
+       :licence "<<license>>")
    #+END_SRC
