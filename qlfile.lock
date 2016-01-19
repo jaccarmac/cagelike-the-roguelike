@@ -1,0 +1,18 @@
+("quicklisp" .
+ (:class qlot.source.ql:source-ql-all
+  :initargs (:project-name "quicklisp" :%version :latest)
+  :version "2015-12-18"))
+("cl-who" .
+ (:class qlot.source.github:source-github
+  :initargs (:project-name "cl-who" :repos "jaccarmac/cl-who" :ref nil :branch "fix-html5-empty-attributes" :tag nil)
+  :version "github-481fa80509e2bfa2f127780c3ff230394ab1a991"
+  :repos "jaccarmac/cl-who"
+  :url "https://github.com/jaccarmac/cl-who/archive/481fa80509e2bfa2f127780c3ff230394ab1a991.tar.gz"
+  :ref "481fa80509e2bfa2f127780c3ff230394ab1a991"))
+("parenscript" .
+ (:class qlot.source.github:source-github
+  :initargs (:project-name "parenscript" :repos "vsedach/Parenscript" :ref nil :branch nil :tag nil)
+  :version "github-b51f35a70fe4da8dce1530afece1fb52d575378e"
+  :repos "vsedach/Parenscript"
+  :url "https://github.com/vsedach/Parenscript/archive/b51f35a70fe4da8dce1530afece1fb52d575378e.tar.gz"
+  :ref "b51f35a70fe4da8dce1530afece1fb52d575378e"))
