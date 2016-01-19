@@ -42,7 +42,7 @@
 ** Version.
 
    #+BEGIN_SRC text :noweb-ref version
-     0.5.1
+     0.6.0
    #+END_SRC
 
 ** Author.
@@ -57,6 +57,46 @@
      Unlicense
    #+END_SRC
 
+** Dependencies.
+
+   #+BEGIN_SRC text :noweb-ref dependencies
+     (<<cl-who-package>> <<parenscript-package>>)
+   #+END_SRC
+
+*** CL-WHO
+
+    generates HTML.
+
+    It's not particularly well-suited for HTML5 generation, so I'm using a
+    version I added a small patch to.
+
+    #+BEGIN_SRC text :noweb-ref cl-who-package
+      cl-who
+    #+END_SRC
+
+    #+BEGIN_SRC text :noweb-ref cl-who-qlot
+      github <<cl-who-package>> jaccarmac/cl-who :branch fix-html5-empty-attributes
+    #+END_SRC
+
+*** Parenscript
+
+    generates Javascript from a subset of Common Lisp.
+
+    #+BEGIN_SRC text :noweb-ref parenscript-package
+      parenscript
+    #+END_SRC
+
+    #+BEGIN_SRC text :noweb-ref parenscript-qlot
+      github <<parenscript-package>> vsedach/Parenscript
+    #+END_SRC
+
+** Package file.
+
+   #+BEGIN_SRC lisp :noweb-ref package
+     (defpackage :cagelike-the-roguelike
+       (:use :cl))
+   #+END_SRC
+
 * Tangle source code.
 
 ** =cagelike-the-roguelike.asd=
@@ -66,5 +106,23 @@
        :description "<<description>>"
        :version "<<version>>"
        :author "<<author>>"
-       :licence "<<license>>")
+       :licence "<<license>>"
+       :depends-on <<dependencies>>
+       :components ((:module "src" :components ((:file "package")))))
    #+END_SRC
+
+** =qlfile=
+
+   #+BEGIN_SRC text :tangle qlfile
+     <<cl-who-qlot>>
+     <<parenscript-qlot>>
+   #+END_SRC
+** =src=
+
+*** =package.lisp=
+
+    #+BEGIN_SRC lisp :tangle src/package.lisp
+      (in-package :cl-user)
+
+      <<package>>
+    #+END_SRC
